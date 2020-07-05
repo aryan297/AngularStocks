@@ -1,0 +1,24 @@
+body{
+    color: lightcoral;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    margin-top:300px;
+    
+}
+mat-card{
+    color:lightcoral;
+}
+mat-form-field{
+    width: 400px;
+}
+
+@media screen and (max-width: 480px) {
+  
+    mat-form-field{
+        width: 250px;
+    }
+  }
+  

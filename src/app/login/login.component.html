@@ -1,0 +1,32 @@
+<body>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path fill="#5000ca" fill-opacity="1" d="M0,64L13.3,64C26.7,64,53,64,80,69.3C106.7,75,133,85,160,117.3C186.7,149,213,203,240,197.3C266.7,192,293,128,320,106.7C346.7,85,373,107,400,122.7C426.7,139,453,149,480,181.3C506.7,213,533,267,560,288C586.7,309,613,299,640,282.7C666.7,267,693,245,720,250.7C746.7,256,773,288,800,282.7C826.7,277,853,235,880,213.3C906.7,192,933,192,960,213.3C986.7,235,1013,277,1040,272C1066.7,267,1093,213,1120,176C1146.7,139,1173,117,1200,96C1226.7,75,1253,53,1280,80C1306.7,107,1333,181,1360,224C1386.7,267,1413,277,1427,282.7L1440,288L1440,0L1426.7,0C1413.3,0,1387,0,1360,0C1333.3,0,1307,0,1280,0C1253.3,0,1227,0,1200,0C1173.3,0,1147,0,1120,0C1093.3,0,1067,0,1040,0C1013.3,0,987,0,960,0C933.3,0,907,0,880,0C853.3,0,827,0,800,0C773.3,0,747,0,720,0C693.3,0,667,0,640,0C613.3,0,587,0,560,0C533.3,0,507,0,480,0C453.3,0,427,0,400,0C373.3,0,347,0,320,0C293.3,0,267,0,240,0C213.3,0,187,0,160,0C133.3,0,107,0,80,0C53.3,0,27,0,13,0L0,0Z"></path>
+  </svg>
+<div class="main">
+<form [formGroup]="form" (ngSubmit)="login()" method="POST">
+  
+  <mat-card> 
+    <h2>Login</h2>
+    <p>
+        <mat-form-field appearance="outline" >
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="username"placeholder="Placeholder">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Placeholder" formControlName="password">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+      </p>
+      <button mat-raised-button color="primary" (click)="login()">Submit</button>
+    </mat-card>
+
+</form>
+</div>
+</body>

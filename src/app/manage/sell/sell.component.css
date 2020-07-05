@@ -1,0 +1,9 @@
+.basic{
+    display: flex;
+  
+    justify-content: flex-end;
+    margin-left: 300px;
+  
+    flex-direction: column;
+    width: 700px;
+}

@@ -1,0 +1,83 @@
+<!-- <mat-toolbar color="primary" class="example-toolbar">
+	<button mat-icon-button (click)="isExpanded = !isExpanded"><mat-icon>menu</mat-icon></button>
+	<h1 class="example-app-name">Stock Management system</h1>
+</mat-toolbar>
+<mat-sidenav-container class="example-container" fullsize>
+	<mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+		<mat-nav-list>
+			<mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
+				<span class="full-width" *ngIf="isExpanded || isShowing">Main Menu</span>
+				<mat-icon mat-list-icon>home</mat-icon>
+				<mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+			</mat-list-item>
+			<div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
+				<a mat-list-item [routerLink]="[{outlets:{sidebar:['add']}}]">Add Medicine</a>
+				<a mat-list-item href="...">Submenu Item 2</a>
+				<mat-list-item (click)="showSubSubMenu = !showSubSubMenu" class="parent">
+					<span class="full-width" *ngIf="isExpanded || isShowing">Nested Menu</span>
+					<mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+				</mat-list-item>
+				<div class="submenu" [ngClass]="{'expanded' : showSubSubMenu}" *ngIf="isShowing || isExpanded">
+					<mat-list-item>SubSubmenu Item 1</mat-list-item>
+					<mat-list-item>SubSubmenu Item 2</mat-list-item>
+				</div>
+			</div>
+		</mat-nav-list>
+    <mat-nav-list>
+</mat-nav-list>
+	</mat-sidenav>
+
+	<div class="example-sidenav-content">
+		<router-outlet name="sidebar"></router-outlet>
+	</div>
+
+</mat-sidenav-container>
+
+ -->
+
+ <mat-sidenav-container fullscreen>
+    <mat-sidenav #sidenav  mode="side" class="example-sidenav" [ngStyle]="{ 'width.em': sidenavWidth }" opened="true" (mouseenter)="increase()"
+      (mouseleave)="decrease()">
+      <div class="logomain"></div>
+      <mat-nav-list>
+        <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
+            <span class="full-width" *ngIf="isExpanded || isShowing">Main Menu</span>
+            <mat-icon mat-list-icon>home</mat-icon>
+            <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+        </mat-list-item>
+        <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
+            <a mat-list-item [routerLink]="[{outlets:{sidebar:['add']}}]">Add Medicine</a>
+            <a mat-list-item [routerLink]="[{outlets:{sidebar:['customer']}}]">Add Customer</a>
+            <a mat-list-item [routerLink]="[{outlets:{sidebar:['sell']}}]">Sell Medicine</a>
+            <mat-list-item (click)="showSubSubMenu = !showSubSubMenu" class="parent">
+                <span class="full-width" *ngIf="isExpanded || isShowing">Nested Menu</span>
+                <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+            </mat-list-item>
+            <div class="submenu" [ngClass]="{'expanded' : showSubSubMenu}" *ngIf="isShowing || isExpanded">
+                <mat-list-item mat-list-item [routerLink]="[{outlets:{sidebar:['drug']}}]">Medicine List</mat-list-item>
+                <mat-list-item  mat-list-item [routerLink]="[{outlets:{sidebar:['list']}}]">Customer List</mat-list-item>
+                <mat-list-item  mat-list-item [routerLink]="[{outlets:{sidebar:['order']}}]">Order List</mat-list-item>
+            </div>
+        </div>
+    </mat-nav-list>
+<mat-nav-list>
+</mat-nav-list>
+
+
+     
+  </mat-sidenav>
+
+    <div>
+        <mat-toolbar  style="background-color: #5000ca;"class="example-toolbar">
+            <button mat-icon-button (click)="increase()"><mat-icon style="color: white;">menu</mat-icon></button>
+            <h1 class="example-app-name" style="color: white;" >Yash Pharma</h1>
+
+         
+        </mat-toolbar>
+        
+      <router-outlet name="sidebar"></router-outlet> 
+     
+    </div>
+  
+  
+  </mat-sidenav-container>

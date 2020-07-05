@@ -1,0 +1,83 @@
+
+<div fxLayout fxLayoutAlign="center center" style="font-size: large; display: flex; justify-content: center;" >
+    <mat-form-field fxFlex="40%">
+        <input matInput type="text" (keyup)="doFilter($event.target.value)" style="color:black" placeholder="Search">
+
+    </mat-form-field>
+</div>
+
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="customerName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Company Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.customerName}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="DL">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>  DL No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.DL}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="GST">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>  GST No </th>
+      <td mat-cell *matCellDef="let element"> {{element.GST}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Address">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
+      <td mat-cell *matCellDef="let element"> {{element.Address}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="Mobile">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header > Mobile </th>
+        <td mat-cell *matCellDef="let element"> {{element.Mobile}} </td>
+      </ng-container>
+  
+
+  <!--     <ng-container matColumnDef="filters">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header > List</th>
+        <td mat-cell *matCellDef="let element"> {{element.filters}} </td>
+      </ng-container> -->
+
+
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header > Order date</th>
+        <td mat-cell *matCellDef="let element"> {{element.date | date}} </td>
+      </ng-container> 
+
+      <ng-container matColumnDef="total">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header > Total price</th>
+        <td mat-cell *matCellDef="let element">Rs. {{element.total}} </td>
+      </ng-container>
+
+
+     
+
+  
+
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header > delete download</th>
+
+       
+        <td mat-cell *matCellDef="let element"> <button mat-icon-button ><mat-icon (click)="delete(element.id)">delete_forever</mat-icon></button>
+          <button mat-icon-button ><mat-icon (click)="generatePdf(element.id)">opacity</mat-icon></button></td>
+
+       
+      </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSize]="6" [pageSizeOptions]="[2,4,6,10,20]">
+
+</mat-paginator>

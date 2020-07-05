@@ -1,0 +1,25 @@
+body{
+    color: lightcoral;
+}
+
+.main{
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    -moz-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0);
+    
+}
+
+mat-form-field{
+    width: 400px;
+}
+
+@media screen and (max-width: 480px) {
+  
+    mat-form-field{
+        width: 250px;
+    }
+  }
+  

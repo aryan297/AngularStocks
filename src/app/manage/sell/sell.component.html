@@ -1,0 +1,143 @@
+<body>
+
+
+ 
+<form class="basic"  [formGroup]="dynamicForm" style="margin-top:10px ;position:absolute;">
+
+
+  <!--   <mat-form-field style="margin-left: 165px;">
+        <mat-select 
+          placeholder="Customer Name"
+          formControlName="customerName">
+          <mat-option 
+            *ngFor="let filterType of filterTypes" 
+            [value]="filterType">
+            {{ filterType }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field> -->
+
+      <mat-form-field appearance="fill">
+        <mat-label> Customer Name</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="customerName">
+        <mat-icon matSuffix></mat-icon>
+        <mat-hint></mat-hint>
+      </mat-form-field><br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>DL no.</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="DL">
+        <mat-icon matSuffix></mat-icon>
+        <mat-hint></mat-hint>
+      </mat-form-field><br>
+      <mat-form-field appearance="fill">
+        <mat-label>GST no.</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="GST">
+        <mat-icon matSuffix></mat-icon>
+        <mat-hint></mat-hint>
+      </mat-form-field><br>
+
+
+      <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <textarea matInput formControlName="Address"></textarea>
+      </mat-form-field><br>
+    
+
+      
+
+          <mat-form-field appearance="fill">
+            <mat-label>Mobile no.</mat-label>
+            <input matInput placeholder="Placeholder" type="number" formControlName="Mobile" maxlength="10">
+            <mat-icon matSuffix></mat-icon>
+            <mat-hint></mat-hint>
+          </mat-form-field><br>
+    <div formArrayName="filters">
+
+
+      <div 
+        *ngFor="let filter of filtersFormArray.controls; let i = index;">
+  
+        <div 
+          [formGroupName]="i" 
+          class="container">
+
+          <mat-form-field class="example-full-width">
+            <input type="text"
+                   placeholder="Medicine Name"
+                   matInput
+                   formControlName="filterType"
+                   [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let filterType of Value" [value]="filterType.Mname" style="width: 1000px;"> 
+              {{filterType.Mname}} , {{filterType.quantity}} RS.{{filterType.sellingPrice}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+       <!--    <mat-form-field>
+            <mat-select 
+              placeholder="Medicine Name"
+              formControlName="filterType">
+              <mat-option 
+                *ngFor="let filterType of Value" 
+                [value]="filterType.Mname">
+                {{ filterType.Mname }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+   -->
+          <mat-form-field>
+          
+            <input 
+            matInput 
+            formControlName="quantity" 
+            placeholder="quantity" type="number">
+          </mat-form-field>
+  
+          <mat-form-field>
+            <input 
+              matInput 
+              formControlName="price" 
+              placeholder="Rs..." type="number">
+          </mat-form-field>
+  
+          <mat-icon 
+            (click)="removeFilterFromFiltersFormArray(i)">
+            delete
+          </mat-icon>
+  
+        </div>
+      </div>
+
+    
+
+
+    <button style="margin-left: 165px;"
+    mat-raised-button 
+    color="primary" 
+    type="button" 
+    (click)="total()">
+    Total
+  </button>
+  
+  
+      <button style="margin-left: 165px;"
+        mat-raised-button 
+        color="primary" 
+        type="button" 
+        (click)="addFilterToFiltersFormArray()">
+        Add Medicine
+      </button>
+  
+      <button 
+        class="save" 
+        mat-stroked-button 
+        color="primary" 
+        [disabled]="dynamicForm.invalid || filtersFormArray.controls.length < 1"
+        (click)="save()">
+        Save
+      </button>
+  
+    </div>
+  </form>
+  </body>
